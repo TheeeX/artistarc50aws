@@ -2,6 +2,8 @@ branch-defaults:
   default:
     environment: artistarc50Aws-env
     group_suffix: null
+  master:
+    environment: artistarc50Aws-env
 global:
   application_name: artistarc5.0 - aws
   default_ec2_keyname: null
