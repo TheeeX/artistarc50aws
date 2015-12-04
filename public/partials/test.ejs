@@ -1,0 +1,356 @@
+<div class="container-fluid">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <!--<h1>Angular Home</h1>
+    <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>-->
+    
+    
+<div class="row">
+    <div class="col-md-12 " style="height:150px; overflow:hidden">
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in slides" active="slide.active">
+          <a href="{{slide.link}}">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="carousel-caption">
+              <!--<h4>Slide {{$index}}</h4>-->
+              <p>{{slide.text}}</p>
+            </div>
+          </a>
+      </uib-slide>
+    </uib-carousel>
+    </div>
+    
+</div>
+</div>
+
+<div class="row" style="padding:0">
+    <div class="col-md-12 " >
+        <div class="row" style="padding:0; padding-left:10px">
+            
+            <!----------------------------------------------------------
+              ---------------------ModalDemoCtrl ----------------------->
+            
+            <div class="col-sm-6 col-md-2" ng-controller="ModalDemoCtrl">
+                    <button class="list-group-item">
+                        home
+                        
+                    </button>
+                    <button type="button" class="list-group-item" ng-click="open()">
+                        Troupes <span class="badge">4</span>
+                        
+                    </button>
+                    <button type="button" class="list-group-item">
+                        Success
+                        
+                    </button>
+                    <button type="button" class="list-group-item">
+                        Info
+                        
+                    </button>
+                    <button type="button" class="list-group-item">
+                        Warning
+                        
+                    </button>
+                    <button type="button" class="list-group-item">
+                        Danger
+                        
+                    </button>
+                
+                    <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
+                
+                    <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Create a Troupe</h3>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li ng-repeat="item in items">
+                                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                                </li>
+                            </ul>
+                            Selected: <b>{{ selected.item }}</b>
+                            <div ng-controller="troupeController">
+                            <form class="well">
+                            
+                                <div class="form-group">
+                                    <label for="troupename">TroupeName</label>
+                                    <input type="text" class="form-control" id="troupename" ng-model="form.troupename">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">UserName</label>
+                                    <input type="text" class="form-control" id="username" ng-model="form.username">
+                                </div>
+                                
+                                <div class="row">
+                                    <button type="submit" class="btn btn-success" ng-click="addToDatabase()">Create Tropue</button>
+                                </div>
+                            
+                            </form>
+                              <div class="row">    
+                                <div class="col-md-12">
+                                <div id="customer-table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <th class="text-center">TroupeName <span class="badge"> {{troupe.length}}</span></th>
+                                            <th class="text-center">Username</th>
+                                            <th class="text-center"><i class="fa fa-trash pointer" ng-click="deleteAll()"></i>
+                                            </th>
+                                        </thead>
+                                        <tr ng-repeat="troupes in troupe | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+                                            <td class="text-center">{{troupes.name}}</td><td class="text-center"> {{troupes.username}}</td>
+                                            
+                                            <td class="text-center pointer"><i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                    
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-3 c">
+                                
+                                <uib-pagination total-items="troupe.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                            </div>
+                            <!--<div class="col-md-4">
+                                  
+                                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+
+                            </div>-->
+                            </div>
+                            </div>
+                        </div>
+                    </script>
+
+            </div>
+            
+                
+            <div class="col-sm-6 col-md-4" ng-controller="postsController">
+                
+                <div class="panel">
+                    <div class="panel-heading">
+                         <div class="img-poster clearfix">
+                           <a href="">
+                               <img class="img-circle" src="http://api.randomuser.me/portraits/men/49.jpg" style="height:50px" /></a>
+                           <strong><a href="">John Doe</a></strong>
+                         </div>
+
+                     </div>
+                     <div class="panel-body">
+                        <div class="form-group">
+                            <label for="postBody">Share Your Art !</label>
+                            <input type="text" class="form-control" id="postBody" ng-model="formPost.postBody">
+                            <button type="submit" class="btn btn-success m-5 r" ng-click="addPostToDatabase()">Share</button>
+                         </div>
+                     </div>
+                    </div>
+
+                <div class="postcontainer">
+                <div class="panel" ng-repeat="post in posts | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+                    <div class="panel-heading">
+                     <div class="img-poster clearfix">
+                       <a href="">
+                            <img class="img-circle" src="http://api.randomuser.me/portraits/men/49.jpg" style="height:50px" /></a>
+                       <strong><a href="">{{post.local.author_username}}</a></strong>
+                     </div>
+                    </div>
+                     <div class="panel-body">
+                        {{post.body}} {{$index}}
+                        <ul class="list-inline list-unstyled">
+
+
+                        <li>
+
+                            <span class="fa fa-star-o m-2 pointer" ng-click="addLike($index)">
+                                <span class="stat">{{post.meta.likes.length}}</span></span>
+
+
+                            <span class="fa fa-comment-o m-2 pointer" ng-click="addComment((currentPage - 1) * pageSize + $index)">
+                                <span class="stat">1k </span></span>
+
+
+                            <span class="fa fa-share-square-o m-2 pointer" ng-click="addShare((currentPage - 1) * pageSize + $index)">
+                                <span class="stat"> 12 </span></span>
+
+                        </li>
+                        <li style="float:right">
+                        <a href="#" class="nou">
+                          <span><i class="fa fa-facebook-square"></i></span>
+                        </a>
+                        <a href="#" class="nou">
+                          <span><i class="fa fa-twitter-square"></i></span>
+                        </a>
+                        <a href="#" class="nou">
+                          <span><i class="fa fa-google-plus-square"></i></span>
+                        </a>  
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                </div> 
+
+
+            </div>
+            
+            <div class="col-sm-3 col-md-3">
+
+                <div class="panel">
+                <div class="panel-heading">
+
+                    <div class="img-poster clearfix">
+                  <a href=""><img class="img-circle" src="http://api.randomuser.me/portraits/men/49.jpg" style="height:50px" /></a>
+                  <strong><a href="">John Doe</a></strong>
+                    <p class="text-muted" style="font-size: 12px;">12 minutes ago</p>
+              </div>
+
+                </div>
+                <div class="panel-body">
+                    Body
+                    <ul class="list-inline list-unstyled">
+
+
+                    <li>
+                        <a href="#"class="nou">
+                            <span class="glyphicon glyphicon-star">2</span>
+                        </a>
+                        <a href="#" class="nou">
+                            <span><i class="glyphicon glyphicon-comment"></i> 2 </span>
+                        </a>
+                        <a href="#" class="nou">
+                            <i class="fa fa-share icon"></i>12
+                        </a>            
+                    </li>
+                    <li style="float:right">
+                    <a href="#" class="nou">
+                      <span><i class="fa fa-facebook-square"></i></span>
+                    </a>
+                    <a href="#" class="nou">
+                      <span><i class="fa fa-twitter-square"></i></span>
+                    </a>
+                    <a href="#" class="nou">
+                      <span><i class="fa fa-google-plus-square"></i></span>
+                    </a>  
+                    </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12">
+                        <div ng-controller="troupeController">    
+
+                            <ul class="list-group">
+                                <li class="list-group-item head">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>TroupeName</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>Username</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><i class="fa fa-trash pointer" ng-click="deleteAll()"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                    <li class="list-group-item troupe-list" ng-repeat="troupes in troupe | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+                                      <div class="row">
+                                        <div class="col-sm-4 col-md-4 text-center">{{troupes.name}}</div>
+                                        <div class="col-sm-4 col-md-4 text-center"> {{troupes.username}}</div>
+                                        <div class="col-sm-4 col-md-4 text-center pointer">
+                                            <strong>
+                                                <i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                                            </strong>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li class="list-group-item text-center">
+
+                                        <uib-pagination class="p-0 m-0 text-center" total-items="troupe.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+                                        </uib-pagination>
+                                    </li>
+                            </ul>
+                            <!--<div class="col-md-4">
+
+                            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+
+                        </div>-->
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12" ng-controller="searchController">
+                        <ul class="list-group">
+                          <li class="list-group-item"><strong>Seacrh</strong></li>
+                          <li class="list-group-item">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="searchqrry" ng-Keypress="searchVar(formSearch.searchqrry)" ng-model="formSearch.searchqrry">
+                                    <button type="submit" class="btn btn-success m-5 r" ng-click="searchVar(formSearch.searchqrry)">
+                                        Search
+                                    </button>
+                                    <br>
+                                </div>
+                          </li>
+                          
+                          <li class="list-group-item" ng-show="formSearch.searchqrry" class="ng-hide">
+                            Searching " {{formSearch.searchqrry}} "
+                          </li>
+                          <li class="list-group-item troupe-list" ng-repeat="sResult in searchResult">
+                              <a href="troupe/{{sResult.username}}">
+                              <div class="row">
+                                <div class="col-sm-4 col-md-4 text-center">{{sResult.name }}{{ sResult.fname}}</div>
+                                <div class="col-sm-4 col-md-4 text-center"> {{sResult.username }}{{ sResult.local.username}}</div>
+                                <div class="col-sm-4 col-md-4 text-center pointer">
+                                    <strong>
+                                        <!--<i class="fa fa-trash" ng-click=""></i>{{searchResult.length}}-->
+                                    </strong>
+                                </div><!---
+                                <a href=""><div class="col-sm-12 col-md-12 text-center pointer">{{sResult}}</div></a>-->
+                              </div>
+                              </a>
+                          </li>
+                        </ul>
+                    </div>
+                    
+                     <!--<div class="col-sm-12 col-md-12">
+                        <div ng-controller="freindsController">    
+
+                            <ul class="list-group">
+                                <li class="list-group-item head">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>Artist</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>Username</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center">
+                                            <a href="user/"><i class="fa fa-sitemap pointer" ng-click="deleteAll()"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                    <li class="list-group-item troupe-list" ng-repeat="contact in addrsbook.contacts | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+                                      <div class="row">
+                                        <div class="col-sm-4 col-md-4 text-center">{{$index}}</div>
+                                        <div class="col-sm-4 col-md-4 text-center"> {{contact.username}}</div>
+                                        <div class="col-sm-4 col-md-4 text-center pointer">
+                                            <strong>
+                                                <i class="fa fa-sitemap " ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                                            </strong>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li class="list-group-item text-center">
+
+                                        <uib-pagination class="p-0 m-0 text-center" total-items="addrsbook.contacts.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+                                        </uib-pagination>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>-->
+
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

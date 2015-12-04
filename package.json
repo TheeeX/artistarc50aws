@@ -1,0 +1,45 @@
+{
+  "name": "artistarc",
+  "version": "5.0.0",
+  "private": true,
+  "author": "KJ <karanjeet96@live.com>",
+  "description": "ART",
+  "contributors": [
+    {
+      "name": "Karan jeet",
+      "email": "karanjeet96@live.com"
+    }
+  ],
+  "main": "./server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "artistarc",
+    "arcorp"
+  ],
+  "noAnalyze": true,
+  "license": "Apache",
+  "engines": {
+    "node": ">=0.6.14"
+  },
+  "dependencies": {
+    "angular-resource": "^1.4.8",
+    "azure-storage": "^0.6.0",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^0.8.2",
+    "cookie-parser": "^1.4.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "mongoose": "^4.2.4",
+    "morgan": "^1.6.1",
+    "multer": "^1.1.0",
+    "passport": "^0.3.0",
+    "passport-facebook": "^2.0.0",
+    "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0"
+  }
+}

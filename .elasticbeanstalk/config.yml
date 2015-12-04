@@ -1,0 +1,11 @@
+branch-defaults:
+  default:
+    environment: artistarc50Aws-env
+    group_suffix: null
+global:
+  application_name: artistarc5.0 - aws
+  default_ec2_keyname: null
+  default_platform: Node.js
+  default_region: us-west-2
+  profile: eb-cli
+  sc: null

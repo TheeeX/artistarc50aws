@@ -1,0 +1,268 @@
+<div style="background: rgb(251, 251, 251);">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style="height:111px;padding-top:12px!important">
+    <h1>Analytics</h1>
+    <!--<p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>-->
+</div>
+
+<div class="container-fluid">
+    <style>
+        .nav-tabs>li.active>a {
+          background-color: rgb(251, 251, 251) !important;
+        }/*
+        .nav {
+          width: 99%;
+          float: right;
+        }*/
+        canvas{
+            width: 95% !important;
+            /* left: 147px; */
+            max-width: 800px;
+            margin: 9px;
+            height: 245px!important;
+        }
+    </style>
+    <script>
+        var chart = AmCharts.makeChart("chartdiv", {
+  "type": "serial",
+  "theme": "light",
+  "rotate": true,
+  "marginBottom": 50,
+  "dataProvider": [{
+    "age": "85+",
+    "male": -0.1,
+    "female": 0.3
+  }, {
+    "age": "80-54",
+    "male": -0.2,
+    "female": 0.3
+  }, {
+    "age": "75-79",
+    "male": -0.3,
+    "female": 0.6
+  }, {
+    "age": "70-74",
+    "male": -0.5,
+    "female": 0.8
+  }, {
+    "age": "65-69",
+    "male": -0.8,
+    "female": 1.0
+  }, {
+    "age": "60-64",
+    "male": -1.1,
+    "female": 1.3
+  }, {
+    "age": "55-59",
+    "male": -1.7,
+    "female": 1.9
+  }, {
+    "age": "50-54",
+    "male": -2.2,
+    "female": 2.5
+  }, {
+    "age": "45-49",
+    "male": -2.8,
+    "female": 3.0
+  }, {
+    "age": "40-44",
+    "male": -3.4,
+    "female": 3.6
+  }, {
+    "age": "35-39",
+    "male": -4.2,
+    "female": 4.1
+  }, {
+    "age": "30-34",
+    "male": -5.2,
+    "female": 4.8
+  }, {
+    "age": "25-29",
+    "male": -5.6,
+    "female": 5.1
+  }, {
+    "age": "20-24",
+    "male": -5.1,
+    "female": 5.1
+  }, {
+    "age": "15-19",
+    "male": -3.8,
+    "female": 3.8
+  }, {
+    "age": "10-14",
+    "male": -3.2,
+    "female": 3.4
+  }, {
+    "age": "5-9",
+    "male": -4.4,
+    "female": 4.1
+  }, {
+    "age": "0-4",
+    "male": -5.0,
+    "female": 4.8
+  }],
+  "startDuration": 1,
+  "graphs": [{
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "male",
+    "title": "Male",
+    "labelText": "[[value]]",
+    "clustered": false,
+    "labelFunction": function(item) {
+      return Math.abs(item.values.value);
+    },
+    "balloonFunction": function(item) {
+      return item.category + ": " + Math.abs(item.values.value) + "%";
+    }
+  }, {
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "female",
+    "title": "Female",
+    "labelText": "[[value]]",
+    "clustered": false,
+    "labelFunction": function(item) {
+      return Math.abs(item.values.value);
+    },
+    "balloonFunction": function(item) {
+      return item.category + ": " + Math.abs(item.values.value) + "%";
+    }
+  }],
+  "categoryField": "age",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "gridAlpha": 0.2,
+    "axisAlpha": 0
+  },
+  "valueAxes": [{
+    "gridAlpha": 0,
+    "ignoreAxisWidth": true,
+    "labelFunction": function(value) {
+      return Math.abs(value) + '%';
+    },
+    "guides": [{
+      "value": 0,
+      "lineAlpha": 0.2
+    }]
+  }],
+  "balloon": {
+    "fixedPosition": true
+  },
+  "chartCursor": {
+    "valueBalloonsEnabled": false,
+    "cursorAlpha": 0.05,
+    "fullWidth": true
+  },
+  "allLabels": [{
+    "text": "Male",
+    "x": "28%",
+    "y": "97%",
+    "bold": true,
+    "align": "middle"
+  }, {
+    "text": "Female",
+    "x": "75%",
+    "y": "97%",
+    "bold": true,
+    "align": "middle"
+  }],
+ "export": {
+    "enabled": true
+  }   
+
+});
+    </script>
+    <uib-tabset>
+        <uib-tab heading="Static title">
+            <!-------------------------------------------------
+            ------------------------CARDS--------------------->
+            <div class="col-sx-12 col-sm-9 col-md-12 p-t-20">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey">
+                            <canvas id="chart line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick" styles="max-width: 200px">
+                            </canvas> 
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey">
+                            <canvas id="doughnut" class="chart chart-doughnut"
+  chart-data="ddata" chart-labels="dlabels">
+                            </canvas> 
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey">
+                            <div yoma></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey">
+                            <div id="chartdiv"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+          {{tab.content}}yo
+        </uib-tab>
+
+        <uib-tab heading="Edit">
+            <!-------------------------------------------------
+            ------------------------CARDS--------------------->
+            <div class="col-sx-12 col-sm-9 col-md-12 p-t-20">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel" style="height:300px;color:grey"></div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+    
+</div>
+</div>
