@@ -11,6 +11,9 @@ app.use('/auth', express.static(path.join(__dirname, 'public')));
 var multer = require('multer'); // v1.0.5
 var upload = multer();                         // for parsing multipart/form-data
 
+var AWS = require('aws-sdk');
+AWS.config.region = 'us-west-2';
+
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var morgan = require('morgan');
