@@ -42,6 +42,12 @@
 .p-t-10 {
     padding-top: 10px !important;
 }
+.p-l-0 {
+    padding-left: 0px !important;
+}
+.p-r-0 {
+    padding-right: 0px !important;
+}
 .p-t-20 {
     padding-top: 20px !important;
 }

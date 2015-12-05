@@ -5,12 +5,15 @@
   font-size: 14px ;
   line-height: 1.42857143 ;
   color: #333 ;
+  background-color: rgba(251, 251, 251, 0.99);
 }
 
 .pointer{
     cursor: pointer;
 }
-
+.panel {
+    margin-bottom: 10px!important;
+}
 .nou {
   text-decoration: none!important;
   color: #333735;
