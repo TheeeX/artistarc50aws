@@ -109,6 +109,44 @@ myApp.controller('troupeController', ['$scope', 'Api', function($scope, Api){
 }]);
 
 
+myApp.controller('projectController', ['$scope', 'Api', function($scope, Api){
+    $scope.form = {};
+    $scope.troupe = [];
+    $scope.pageSize = 5;
+    $scope.currentPage = 1;
+    $scope.animate = true;
+    
+    Api.Troupe.query({}, function(data){
+        $scope.troupe = data;
+    });
+    
+    $scope.deleteAll = function(){
+        Api.Troupe.delete({}, function(data){
+            $scope.troupe = [];
+        })
+    }
+    
+    $scope.delete = function(index){
+        bootbox.confirm("Are you sure you want to delete this troupe?", function(answer){
+            if(answer == true)
+                Api.Troupe.delete({id: $scope.troupe[index]._id}, function(data){
+                    $scope.troupe.splice(index, 1);
+                });
+        })
+    }
+    
+    $scope.addToDatabase = function(){
+        Api.Troupe.save({}, $scope.form, 
+        function(data){
+            $scope.troupe.push(data);
+        },
+        function(err){
+            bootbox.alert('Error: ' + err);
+        });
+    }
+}]);
+
+
 myApp.controller('postsController', ['$scope', 'Api', function($scope, Api){
     $scope.formPost = {};
     $scope.posts = [];
