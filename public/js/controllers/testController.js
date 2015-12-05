@@ -28,11 +28,11 @@ myApp.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function($scop
 
   $scope.animationsEnabled = true;
 
-  $scope.open = function (size) {
+  $scope.openTroupeModal = function (size) {
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
+      templateUrl: 'troupeModal.html',
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
@@ -41,7 +41,7 @@ myApp.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function($scop
         }
       }
     });
-
+    
     modalInstance.result.then(function (selectedItem) {
       $scope.selected = selectedItem;
     }, function () {
@@ -49,6 +49,26 @@ myApp.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function($scop
     });
   };
 
+  $scope.openProjectModal = function (size) {
+
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'projectModal.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+    
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
@@ -110,35 +130,34 @@ myApp.controller('troupeController', ['$scope', 'Api', function($scope, Api){
 
 
 myApp.controller('projectController', ['$scope', 'Api', function($scope, Api){
-    $scope.form = {};
-    $scope.troupe = [];
+    $scope.projectform = {};
+    $scope.project = [];
     $scope.pageSize = 5;
     $scope.currentPage = 1;
-    $scope.animate = true;
     
-    Api.Troupe.query({}, function(data){
-        $scope.troupe = data;
+    Api.Project.query({}, function(data){
+        $scope.project = data;
     });
     
     $scope.deleteAll = function(){
-        Api.Troupe.delete({}, function(data){
-            $scope.troupe = [];
+        Api.Project.delete({}, function(data){
+            $scope.project = [];
         })
     }
     
     $scope.delete = function(index){
         bootbox.confirm("Are you sure you want to delete this troupe?", function(answer){
             if(answer == true)
-                Api.Troupe.delete({id: $scope.troupe[index]._id}, function(data){
-                    $scope.troupe.splice(index, 1);
+                Api.Project.delete({id: $scope.project[index]._id}, function(data){
+                    $scope.project.splice(index, 1);
                 });
         })
     }
     
     $scope.addToDatabase = function(){
-        Api.Troupe.save({}, $scope.form, 
+        Api.Project.save({}, $scope.projectform, 
         function(data){
-            $scope.troupe.push(data);
+            $scope.project.push(data);
         },
         function(err){
             bootbox.alert('Error: ' + err);
