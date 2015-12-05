@@ -238,23 +238,24 @@ myApp.controller('postsController', ['$scope', 'Api', function($scope, Api){
 
 myApp.controller('searchController', ['$scope', 'Api', function($scope, Api){
     $scope.formSearch = {};
-    $scope.searchResult = {};
+    $scope.searchTroupe = {};
+    $scope.searchUser = {};
     $scope.pageSize = 5;
     $scope.currentPage = 1;
     
     $scope.searchVar = function(searchqrry){
         if(searchqrry){
             Api.SearchObj.save({target: 'troupe', id: searchqrry}, function(data){
-                console.log('searcing() !found');
+                console.log('searcing(troupe) !found');
                 console.log(data);
                 if(data)
-                    $scope.searchResult = data;
+                    $scope.searchTroupe = data;
             });
             Api.SearchObj.save({target: 'user', id: searchqrry}, function(data){
-                console.log('searcing() !found');
+                console.log('searcing(user) !found');
                 console.log(data);
                 if(data)
-                    $scope.searchResult = data;
+                    $scope.searchUser = data;
             });
         }
     }

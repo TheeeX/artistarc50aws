@@ -441,17 +441,35 @@
                           <li class="list-group-item" ng-show="formSearch.searchqrry" class="ng-hide">
                             Searching " {{formSearch.searchqrry}} "
                           </li>
-                          <li class="list-group-item troupe-list" ng-repeat="sResult in searchResult">
-                              <a href="troupe/{{sResult.username}}">
+                          <li class="list-group-item troupe-list" ng-repeat="sUser in searchUser">
+                              <a href="user/{{sUser.local.username}}">
                               <div class="row">
-                                <div class="col-sm-4 col-md-4 text-center">{{sResult.name }}{{ sResult.fname}}</div>
-                                <div class="col-sm-4 col-md-4 text-center"> {{sResult.username }}{{ sResult.local.username}}</div>
+                                <div class="col-sm-4 col-md-4 text-center">
+                                    {{sUser.fname}}</div>
+                                <div class="col-sm-4 col-md-4 text-center"> 
+                                    {{sUser.local.username}}</div>
                                 <div class="col-sm-4 col-md-4 text-center pointer">
                                     <strong>
-                                        <!--<i class="fa fa-trash" ng-click=""></i>{{searchResult.length}}-->
+                                        <!--<i class="fa fa-trash" ng-click=""></i>{{searchUser.length}}-->
                                     </strong>
-                                </div><!---
-                                <a href=""><div class="col-sm-12 col-md-12 text-center pointer">{{sResult}}</div></a>-->
+                                </div><!--
+                                <a href=""><div class="col-sm-12 col-md-12 text-center pointer">{{sUser}}</div></a>-->
+                              </div>
+                              </a>
+                          </li>
+                          <li class="list-group-item troupe-list" ng-repeat="sTroupe in searchTroupe">
+                              <a href="troupe/{{sTroupe.username}}">
+                              <div class="row">
+                                <div class="col-sm-4 col-md-4 text-center">
+                                    {{sTroupe.name }}</div>
+                                <div class="col-sm-4 col-md-4 text-center"> 
+                                    {{sTroupe.username }}</div>
+                                <div class="col-sm-4 col-md-4 text-center pointer">
+                                    <strong>
+                                        <!--<i class="fa fa-trash" ng-click=""></i>{{searchTroupe.length}}-->
+                                    </strong>
+                                </div><!--
+                                <a href=""><div class="col-sm-12 col-md-12 text-center pointer">{{sTroupe}}</div></a>-->
                               </div>
                               </a>
                           </li>
