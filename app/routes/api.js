@@ -1,4 +1,5 @@
 var Troupe = require('../models/troupe');
+var Project = require('../models/project');
 var Posts = require('../models/posts');
 var User = require('../models/user');
 var Notfstore = require('../models/notfstore');
@@ -33,6 +34,8 @@ module.exports = function(router){
     
     router.get('/troupe', function(req, res){
         Troupe.find({'local.author_username': req.user.local.username}, function(err, data){
+            console.log('troupe data');
+            console.log(data);
             res.json(data);
         });
     });
@@ -83,10 +86,10 @@ module.exports = function(router){
     router.post('/project', function(req, res){
         console.log(req.body);
         console.log(req.user.local.username);
-        var troupe = new Troupe();
-        troupe.name = req.body.troupename;
-        troupe.username = req.body.username;
-        troupe.local.author_username = req.user.local.username;
+        var project = new Project();
+        project.name = req.body.projectname;
+        project.username = req.body.username;
+        project.local.author_username = req.user.local.username;
         /*if(req.body.address) {
             troupe.address.street = req.body.address.street;
             troupe.address.city = req.body.address.city;
@@ -94,7 +97,7 @@ module.exports = function(router){
             troupe.address.zip = req.body.address.zip;
         }*/
         
-        troupe.save(function(err, data){
+        project.save(function(err, data){
             if(err)
                 throw err;
             res.json(data);
@@ -102,35 +105,35 @@ module.exports = function(router){
     });
     
     router.get('/project', function(req, res){
-        Troupe.find({'local.author_username': req.user.local.username}, function(err, data){
+        Project.find({'local.author_username': req.user.local.username}, function(err, data){
             res.json(data);
         });
     });
     
     router.delete('/project', function(req, res){
-        Troupe.remove({}, function(err){
+        Project.remove({}, function(err){
             res.json({result: err ? 'error' : 'ok'});
         });
     });
     
     router.get('/project/:id', function(req, res){
-        Troupe.findOne({_id: req.params.id}, function(err, data){
+        Project.findOne({_id: req.params.id}, function(err, data){
             res.json(data);
         })
     })
     
     router.delete('/project/:id', function(req, res){
-        Troupe.remove({_id: req.params.id}, function(err){
+        Project.remove({_id: req.params.id}, function(err){
             res.json({result: err ? 'error' : 'ok'});
         })
     })
     
     router.post('/project/:id', function(req, res){
-        Troupe.findOne({_id: req.params.id}, function(err, data){
-            var troupe = data;
-            troupe.name = req.body.troupename;
-            troupe.username = req.body.username;
-            troupe.local.author_username = req.user.local.username;
+        Project.findOne({_id: req.params.id}, function(err, data){
+            var project = data;
+            project.name = req.body.projectname;
+            project.username = req.body.username;
+            project.local.author_username = req.user.local.username;
             /*if(req.body.address) {
                 troupe.address.street = req.body.address.street;
                 troupe.address.city = req.body.address.city;
@@ -138,7 +141,7 @@ module.exports = function(router){
                 troupe.address.zip = req.body.address.zip;
             }*/
             
-            troupe.save(function(err, data){
+            project.save(function(err, data){
                 if(err)
                     throw err;
                 res.json(data);
