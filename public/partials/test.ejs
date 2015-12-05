@@ -36,12 +36,12 @@
                         home
                         
                     </button>
-                    <button type="button" class="list-group-item" ng-click="open()">
+                    <button type="button" class="list-group-item" ng-click="openTroupeModal()">
                         Troupes <span class="badge">4</span>
                         
                     </button>
-                    <button type="button" class="list-group-item">
-                        Success
+                    <button type="button" class="list-group-item" ng-click="openProjectModal()">
+                        Projects <span class="badge">17</span>
                         
                     </button>
                     <button type="button" class="list-group-item">
@@ -59,7 +59,7 @@
                 
                     <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
                 
-                    <script type="text/ng-template" id="myModalContent.html">
+                    <script type="text/ng-template" id="troupeModal.html">
                         <div class="modal-header">
                             <h3 class="modal-title">Create a Troupe</h3>
                         </div>
@@ -110,6 +110,69 @@
                             <div class="col-md-3 col-sm-4 col-xs-3 c">
                                 
                                 <uib-pagination total-items="troupe.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                            </div>
+                            <!--<div class="col-md-4">
+                                  
+                                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+
+                            </div>-->
+                            </div>
+                            </div>
+                        </div>
+                    </script>
+                
+                <script type="text/ng-template" id="projectModal.html">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Create a Project</h3>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li ng-repeat="item in items">
+                                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                                </li>
+                            </ul>
+                            Selected: <b>{{ selected.item }}</b>
+                            <div ng-controller="projectController">
+                            <form class="well">
+                            
+                                <div class="form-group">
+                                    <label for="troupename">ProjectName</label>
+                                    <input type="text" class="form-control" id="projectname" ng-model="projectform.projectname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">UserName</label>
+                                    <input type="text" class="form-control" id="username" ng-model="projectform.username">
+                                </div>
+                                
+                                <div class="row">
+                                    <button type="submit" class="btn btn-success" ng-click="addToDatabase()">Create Project</button>
+                                </div>
+                            
+                            </form>
+                              <div class="row">    
+                                <div class="col-md-12">
+                                <div id="customer-table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <th class="text-center">TroupeName <span class="badge"> {{project.length}}</span></th>
+                                            <th class="text-center">Username</th>
+                                            <th class="text-center"><i class="fa fa-trash pointer" ng-click="deleteAll()"></i>
+                                            </th>
+                                        </thead>
+                                        <tr ng-repeat="projects in project | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+                                            <td class="text-center">{{projects.name}}</td><td class="text-center"> {{projects.username}}</td>
+                                            
+                                            <td class="text-center pointer"><i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                    
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-3 c">
+                                
+                                <uib-pagination total-items="project.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
                             </div>
                             <!--<div class="col-md-4">
                                   
@@ -312,6 +375,44 @@
                                     <li class="list-group-item text-center">
 
                                         <uib-pagination class="p-0 m-0 text-center" total-items="troupe.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+                                        </uib-pagination>
+                                    </li>
+                            </ul>
+                            <!--<div class="col-md-4">
+
+                            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+
+                        </div>-->
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12">
+                        <div ng-controller="projectController">    
+
+                            <ul class="list-group">
+                                <li class="list-group-item head">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>ProjectName</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>Username</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><i class="fa fa-trash pointer" ng-click="deleteAll()"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                    <li class="list-group-item troupe-list" ng-repeat="projects in project | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+                                      <div class="row">
+                                        <div class="col-sm-4 col-md-4 text-center">{{projects.name}}</div>
+                                        <div class="col-sm-4 col-md-4 text-center"> {{projects.username}}</div>
+                                        <div class="col-sm-4 col-md-4 text-center pointer">
+                                            <strong>
+                                                <i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                                            </strong>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <li class="list-group-item text-center">
+
+                                        <uib-pagination class="p-0 m-0 text-center" total-items="project.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
                                         </uib-pagination>
                                     </li>
                             </ul>
