@@ -19,6 +19,12 @@ var myApp = angular.module('myApp', [
        
         $routeProvider.when('/project/:userName', {templateUrl: '../partials/project.ejs', controller: 'projectProfileCtrl'});
         
+        $routeProvider.when('/troupe', {templateUrl: 'partials/troupelist.ejs', controller: 'aboutController'});
+        
+        $routeProvider.when('/project', {templateUrl: 'partials/projectlist.ejs', controller: 'aboutController'});
+        
+        $routeProvider.when('/gallery', {templateUrl: 'partials/gallery.ejs', controller: 'aboutController'});
+        
         $routeProvider.when('/edit', {templateUrl: 'partials/edit.ejs', controller: 'aboutController'});
         
         $routeProvider.when('/analytics', {templateUrl: 'partials/analytics.ejs', controller: 'analyticsController'});
