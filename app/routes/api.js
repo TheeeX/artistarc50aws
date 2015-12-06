@@ -257,8 +257,11 @@ module.exports = function(router){
             console.log(req.params.id);
         Troupe.findOne({'username': req.params.id}, function(err, data){
             res.json(data);
-            console.log('data from server!');
-            console.log(data);
+            
+            if(isAdmin(req.user.local.username,data)){
+                console.log('Admin!');
+            }else
+                console.log('Not Admin!');
         })
     })
     
@@ -308,6 +311,11 @@ module.exports = function(router){
     router.get('/user/:id', function(req, res){
         User.findOne({'local.username': req.params.id}, function(err, data){
             res.json(data);
+            
+            if(isAdmin(req.user.local.username,data)){
+                console.log('Admin!');
+            }else
+                console.log('Not Admin!');
         })
     })
     
@@ -319,7 +327,8 @@ module.exports = function(router){
     
     router.post('/user/:id', function(req, res){
         console.log('yo ba');
-        User.findOne({'local.username': req.user.local.username}, function(err, data){
+        User.findOne({'local.username': req.params.id}, function(err, data){
+            
             var user = data;
             if(req.body.fname){
                 user.fname = req.body.fname;
@@ -559,4 +568,14 @@ module.exports = function(router){
             });
         });
     });
+};
+
+function isAdmin(username, Object) {
+	if(Object.local.author_username==username){
+		return true;
+	}if(Object.local.username==username){
+		return true;
+	}
+    else
+        return false;
 }
