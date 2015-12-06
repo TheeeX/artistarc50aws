@@ -1,0 +1,356 @@
+<hr>
+<div class="container">
+	<div class="row">
+  		<div class="col-sm-12"><br><br></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+            <div class="row" style="padding-bottom: 25px;">
+                <div class="col-xs-12 col-sm-12 text-center">
+                                <img src="http://api.randomuser.me/portraits/men/49.jpg" alt="" class="center-block img-circle img-responsive" style="height:150px">
+                                <ul class="list-inline ratings text-center" title="Ratings">
+                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                  <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                </ul>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-12 text-center">
+                            <h3>{{currentuser.fname}}</h3>
+                            <p><strong>About: </strong> {{currentuser.about}}. </p>
+                            <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
+                            <p><strong>Skills: </strong>
+                                <span class="label label-info tags">html5</span> 
+                                <span class="label label-info tags">css3</span>
+                                <span class="label label-info tags">jquery</span>
+                                <span class="label label-info tags">bootstrap3</span>
+                            </p>
+                        </div><!--/col-->          
+
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <h3> {{currentuser.followers.length}} </h3>                    
+                            <p><small>Followers</small></p>
+                            <div style="cursor:pointer"><span class="fa fa-plus-circle"></span> Follow </div>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <h3> {{currentuser.following.length}} </strong></h3>                    
+                            <p><small>Followin</p>
+                            <div style="cursor:pointer"><span class="fa fa-user"></span> View Profile </div>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <h3> {{currentuser.art.length}} </h3>                    
+                            <p><small>Snippets</small></p>
+                            <div style="cursor:pointer"><span class="fa fa-gear"></span> Options </div>  
+                        </div><!--/col-->
+              		</div><!--/row-->
+
+              <ul class="list-group">
+                <li class="list-group-item text-muted">Profile</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{currentuser.created_at}} </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Email:</strong></span> {{currentuser.email}} </li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Birthday</strong></span> {{currentuser.meta.dob}} </li>
+
+              </ul> 
+
+              <div class="panel panel-default">
+                <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                <div class="panel-body"><a href="http://bootply.com"> {{currentuser.meta.website}} </a></div>
+              </div>
+
+              <ul class="list-group">
+                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+              </ul> 
+
+              <div class="panel panel-default">
+                <div class="panel-heading">Social Media</div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                </div>
+              </div>
+
+            </div><!--/col-3-->
+            <div class="col-sm-9">
+                
+              <uib-tabset>
+                <uib-tab heading="Static title">
+                  
+                  <div id="home">
+               
+               <h2></h2>
+               
+               <ul class="list-group">
+                  <li class="list-group-item text-muted">Inbox</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                  <li class="list-group-item text-right"><a href="#" class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+                  
+                </ul> 
+               
+                <hr>
+              
+              <h4>Recent Activity</h4>
+              
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  
+                  <tbody>
+                    <tr>
+                      <td><i class="pull-right fa fa-edit"></i> Today, 1:00 - Jeff Manzi liked your post.</td>
+                    </tr>
+                    <tr>
+                      <td><i class="pull-right fa fa-edit"></i> Today, 12:23 - Mark Friendo liked and shared your post.</td>
+                    </tr>
+                    <tr>
+                      <td><i class="pull-right fa fa-edit"></i> Today, 12:20 - You posted a new blog entry title "Why social media is".</td>
+                    </tr>
+                    <tr>
+                      <td><i class="pull-right fa fa-edit"></i> Yesterday - Karen P. liked your post.</td>
+                    </tr>
+                    <tr>
+                      <td><i class="pull-right fa fa-edit"></i> 2 Days Ago - Philip W. liked your post.</td>
+                    </tr>
+                    <tr>
+                      <td><i class="pull-right fa fa-edit"></i> 2 Days Ago - Jeff Manzi liked your post.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                    
+             </div><!--/tab-pane-->
+                
+                </uib-tab>
+                  
+                <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+                  {{tab.content}}
+                </uib-tab>
+                
+                <uib-tab heading="Edit">
+        
+                  <div id="settings">
+                      <h3> Edit Details</h3>
+                  <hr>
+                  <form>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>Name</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" ng-model="cuser.fname" placeholder="first name : {{currentuser.fname}}" title="enter your first name if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>User name</h4></label>
+                              <input type="text" class="form-control" name="user_name" id="user_name" ng-model="cuser.username" placeholder="username : {{currentuser.local.username}} " title="troupe username.">
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">
+                          
+                          <div class="col-xs-12">
+                            <label for="about"><h4>About</h4></label>
+                              <input type="text" class="form-control" name="about" id="about" ng-model="cuser.about" placeholder="About your troupe : {{currentuser.about}} " title="About you.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="website"><h4>Website</h4></label>
+                              <input type="text" class="form-control" name="website" id="website" ng-model="cuser.website" placeholder="www: {{currentuser.meta.website}} " title="enter your website number if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Contact </h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" ng-model="cuser.mobile" placeholder="enter mobile number: {{currentuser.mobile}}" title="enter your mobile number if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="birthday"><h4>Birthday </h4></label>
+                              <input type="date" class="form-control" name="birthday" id="birthday" ng-model="cuser.dob" placeholder="enter your birthday:{{currentuser.meta.dob}}" title="enter your birthday">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="gender"><h4>Gender </h4></label>
+                              <input type="text" class="form-control" name="gender" id="gender" ng-model="cuser.gender" placeholder="enter your gender: {{currentuser.gender}}" title="enter your gender">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" ng-model="cuser.email" placeholder="you@email.com: {{currentuser.email}} " title="enter your email.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="location"><h4>Location</h4></label>
+                              <input type="text" class="form-control" id="location" ng-model="cuser.location" placeholder="somewhere: {{currentuser.location}} " title="enter a location">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="password"><h4>Password</h4></label>
+                              <input type="password" class="form-control" name="password" id="password" ng-model="cuser.password" placeholder="******" title="enter your password.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="tags"><h4>Tags</h4></label>
+                              <input type="text" class="form-control" name="tags" id="tags" ng-model="cuser.tags" placeholder="#tags; {{currentuser.tags}} " title="enter tags for your troupe.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" type="submit" ng-click="updateinfo()"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                               	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Cancel</button>
+                            </div>
+                      </div>
+              	</form>
+              </div>
+                    
+                </uib-tab>
+                  
+              </uib-tabset>
+                    
+              </div><!--/tab-pane-->
+            </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+<script>
+/* pagination */
+$.fn.pageMe = function(opts){
+    var $this = this,
+        defaults = {
+            perPage: 7,
+            showPrevNext: false,
+            numbersPerPage: 1,
+            hidePageNumbers: false
+        },
+        settings = $.extend(defaults, opts);
+    
+    var listElement = $this;
+    var perPage = settings.perPage; 
+    var children = listElement.children();
+    var pager = $('.pagination');
+    
+    if (typeof settings.childSelector!="undefined") {
+        children = listElement.find(settings.childSelector);
+    }
+    
+    if (typeof settings.pagerSelector!="undefined") {
+        pager = $(settings.pagerSelector);
+    }
+    
+    var numItems = children.size();
+    var numPages = Math.ceil(numItems/perPage);
+
+    pager.data("curr",0);
+    
+    if (settings.showPrevNext){
+        $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
+    }
+    
+    var curr = 0;
+    while(numPages > curr && (settings.hidePageNumbers==false)){
+        $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo(pager);
+        curr++;
+    }
+  
+    if (settings.numbersPerPage>1) {
+       $('.page_link').hide();
+       $('.page_link').slice(pager.data("curr"), settings.numbersPerPage).show();
+    }
+    
+    if (settings.showPrevNext){
+        $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
+    }
+    
+    pager.find('.page_link:first').addClass('active');
+    if (numPages<=1) {
+        pager.find('.next_link').hide();
+    }
+  	pager.children().eq(1).addClass("active");
+    
+    children.hide();
+    children.slice(0, perPage).show();
+    
+    pager.find('li .page_link').click(function(){
+        var clickedPage = $(this).html().valueOf()-1;
+        goTo(clickedPage,perPage);
+        return false;
+    });
+    pager.find('li .prev_link').click(function(){
+        previous();
+        return false;
+    });
+    pager.find('li .next_link').click(function(){
+        next();
+        return false;
+    });
+    
+    function previous(){
+        var goToPage = parseInt(pager.data("curr")) - 1;
+        goTo(goToPage);
+    }
+     
+    function next(){
+        goToPage = parseInt(pager.data("curr")) + 1;
+        goTo(goToPage);
+    }
+    
+    function goTo(page){
+        var startAt = page * perPage,
+            endOn = startAt + perPage;
+        
+        children.css('display','none').slice(startAt, endOn).show();
+        
+        if (page>=1) {
+            pager.find('.prev_link').show();
+        }
+        else {
+            pager.find('.prev_link').hide();
+        }
+        
+        if (page<(numPages-1)) {
+            pager.find('.next_link').show();
+        }
+        else {
+            pager.find('.next_link').hide();
+        }
+        
+        pager.data("curr",page);
+       
+        if (settings.numbersPerPage>1) {
+       		$('.page_link').hide();
+       		$('.page_link').slice(page, settings.numbersPerPage+page).show();
+    	}
+      
+      	pager.children().removeClass("active");
+        pager.children().eq(page+1).addClass("active");  
+    }
+};
+
+$('#items').pageMe({pagerSelector:'#myPager',childSelector:'tr',showPrevNext:true,hidePageNumbers:false,perPage:5});
+/****/
+</script>
