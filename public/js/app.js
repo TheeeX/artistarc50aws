@@ -15,11 +15,13 @@ var myApp = angular.module('myApp', [
         
         $routeProvider.when('/user/:userName', {templateUrl: 'partials/user.ejs', controller: 'userProfileCtrl'});
         
+        $routeProvider.when('/troupe/:userName', {templateUrl: '../partials/troupe.ejs', controller: 'troupeProfileCtrl'});
+       
+        $routeProvider.when('/project/:userName', {templateUrl: '../partials/project.ejs', controller: 'projectProfileCtrl'});
+        
         $routeProvider.when('/edit', {templateUrl: 'partials/edit.ejs', controller: 'aboutController'});
         
         $routeProvider.when('/analytics', {templateUrl: 'partials/analytics.ejs', controller: 'analyticsController'});
-        
-        $routeProvider.when('/troupe/:userName', {templateUrl: '../partials/troupe.ejs', controller: 'troupeProfileCtrl'});
         
 		$routeProvider.otherwise({redirectTo: '/test'});
 
