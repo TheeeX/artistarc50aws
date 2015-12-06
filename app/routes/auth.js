@@ -50,7 +50,7 @@ module.exports = function(router, passport){
 	});
 
 	router.post('/connect/local', passport.authenticate('local-signup', {
-		successRedirect: '/test',
+		successRedirect: '/',
 		failureRedirect: '/connect/local',
 		failureFlash: true
 	}));

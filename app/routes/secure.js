@@ -28,6 +28,9 @@ module.exports = function(router, passport){
     router.get('/edit', function(req, res){
 		res.render('test.ejs', { user: req.user });
 	});
+    router.get('/profile', function(req, res){
+		res.render('profile.ejs', { user: req.user });
+	});
 
 	/*
 	router.get('/*', function(req, res){
