@@ -7,41 +7,31 @@ module.exports = function(router, passport){
 		res.redirect('/auth');
 	});
 
-	router.get('/', function(req, res){
-		res.render('home.ejs', { Tname: req.user.username });
-	});
-
-
-    router.get('/test', function(req, res){
+    router.get('/', function(req, res){
 		res.render('test.ejs', { user: req.user });
 	});
-    
-	router.get('/profile', function(req, res){
-		res.render('profile.ejs', { user: req.user });
+    router.get('/edit', function(req, res){
+		res.render('test.ejs', { user: req.user });
 	});
-
-	
-	//localhost:3000/home
-	router.get('/home', function(req, res){
-		res.render('home.ejs', { Tname: req.user.username });
+    router.get('/user/:userName', function(req, res){
+		res.render('test.ejs', { user: req.user });
 	});
-    //localhost:3000/Ahome
-	router.get('/ahome', function(req, res){
-		res.render('ahome.ejs', { Tname: req.user.username });
+    router.get('/troupe/:userName', function(req, res){
+		res.render('test.ejs', { user: req.user });
 	});
-
-	router.get('/projects', function(req, res){
-		res.render('project.ejs');
+    router.get('/project/:userName', function(req, res){
+		res.render('test.ejs', { user: req.user });
 	});
-
-	router.get('/troupes', function(req, res){
-		res.render('troupe.ejs');
+    router.get('/analytics', function(req, res){
+		res.render('test.ejs', { user: req.user });
 	});
-
+    router.get('/edit', function(req, res){
+		res.render('test.ejs', { user: req.user });
+	});
 
 	/*
 	router.get('/*', function(req, res){
-		res.redirect('/profile');
+		res.redirect('/');
 	})
 	*/
 

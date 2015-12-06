@@ -8,6 +8,9 @@ app.set('port', process.env.PORT || 3000);
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', express.static(path.join(__dirname, 'public')));
+app.use('/user', express.static(path.join(__dirname, 'public')));
+app.use('/troupe', express.static(path.join(__dirname, 'public')));
+app.use('/project', express.static(path.join(__dirname, 'public')));
 var multer = require('multer'); // v1.0.5
 var upload = multer();                         // for parsing multipart/form-data
 

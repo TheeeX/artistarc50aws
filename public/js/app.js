@@ -11,7 +11,7 @@ var myApp = angular.module('myApp', [
         
 		$routeProvider.when('/page2', {templateUrl: 'partials/page2.ejs'});
         
-        $routeProvider.when('/test', {templateUrl: 'partials/test.ejs', controller: 'testController'});
+        $routeProvider.when('/', {templateUrl: 'partials/test.ejs', controller: 'testController'});
         
         $routeProvider.when('/user/:userName', {templateUrl: 'partials/user.ejs', controller: 'userProfileCtrl'});
         
@@ -23,7 +23,7 @@ var myApp = angular.module('myApp', [
         
         $routeProvider.when('/analytics', {templateUrl: 'partials/analytics.ejs', controller: 'analyticsController'});
         
-		$routeProvider.otherwise({redirectTo: '/test'});
+		$routeProvider.otherwise({redirectTo: '/'});
 
 		$locationProvider.html5Mode({enabled: true, requireBase: false});
 
