@@ -12,7 +12,7 @@ module.exports = function(router, passport){
 	});
 
 	router.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/test',
+		successRedirect: '/',
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
@@ -23,27 +23,31 @@ module.exports = function(router, passport){
 
 
 	router.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/test',
+		successRedirect: '/',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
 
 	//localhost:3000/auth/facebook
-	router.get('/facebook', passport.authenticate('facebook', {scope: ['email']}));
+	router.get('/facebook',
+               passport.authenticate('facebook', {scope: ['email']}));
 
 	router.get('/facebook/callback', 
-	  passport.authenticate('facebook', { successRedirect: '/test',
+               passport.authenticate('facebook', { successRedirect: '/',
 	                                      failureRedirect: '/login' }));
 
-	router.get('/google'  , passport.authenticate('google', {scope: ['profile', 'email']}));
+	router.get('/google'  , 
+               passport.authenticate('google', {scope: ['profile', 'email']}));
 
 	router.get('/google/callback', 
-	  passport.authenticate('google', { successRedirect: '/test',
+               passport.authenticate('google', { successRedirect: '/',
 	                                      failureRedirect: '/login' }));
 
-	router.get('/connect/facebook', passport.authorize('facebook', { scope: 'email' }));
+	router.get('/connect/facebook', 
+               passport.authorize('facebook', { scope: 'email' }));
 	
-	router.get('/connect/google', passport.authorize('google', { scope: ['profile', 'email'] }));
+	router.get('/connect/google', 
+               passport.authorize('google', { scope: ['profile', 'email'] }));
 
 	router.get('/connect/local', function(req, res){
 		res.render('connect-local.ejs', { message: req.flash('signupMessage')});
