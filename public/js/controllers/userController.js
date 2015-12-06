@@ -5,7 +5,7 @@ myApp.controller('userController', ['$scope', 'Api', function($scope, Api){
   ];
     $scope.currentuser = {};
     $scope.cuser = {};
-  Api.ActiveUser.get({id: 'user'}, function(data){
+  Api.User.get({}, function(data){
         $scope.currentuser = data;
         console.log('Active User (data)');
         console.log($scope.currentuser);
