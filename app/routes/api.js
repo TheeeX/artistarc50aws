@@ -33,9 +33,7 @@ module.exports = function(router){
     });
     
     router.get('/troupe', function(req, res){
-        Troupe.find({'local.author_username': req.user.local.username}, function(err, data){
-            console.log('troupe data');
-            console.log(data);
+        Troupe.find({'local.author_username': req.user.local.username}, function(err, data)         {
             res.json(data);
         });
     });
@@ -293,33 +291,33 @@ module.exports = function(router){
     });
     
     /*------------------------------------------------------
-    --------------------- USER Active ----------------------
-    ------------------------------------------------------*/
-    router.get('/activeuser', function(req, res){
+    ------------------------- USER -------------------------
+    -------------------------------------------------------*/
+    router.get('/user', function(req, res){
         User.findOne({'local.username': req.user.local.username}, function(err, data){
             res.json(data);
         });
     });
     
-    router.delete('/activeuser', function(req, res){
+    router.delete('/user', function(req, res){
         User.remove({}, function(err){
             res.json({result: err ? 'error' : 'ok'});
         });
     });
     
-    router.get('/activeuser/:id', function(req, res){
-        User.findOne({'local.username': req.user.local.username}, function(err, data){
+    router.get('/user/:id', function(req, res){
+        User.findOne({'local.username': req.params.id}, function(err, data){
             res.json(data);
         })
     })
     
-    router.delete('/activeuser/:id', function(req, res){
+    router.delete('/user/:id', function(req, res){
         Troupe.remove({_id: req.params.id}, function(err){
             res.json({result: err ? 'error' : 'ok'});
         })
     })
     
-    router.post('/activeuser/:id', function(req, res){
+    router.post('/user/:id', function(req, res){
         console.log('yo ba');
         User.findOne({'local.username': req.user.local.username}, function(err, data){
             var user = data;
