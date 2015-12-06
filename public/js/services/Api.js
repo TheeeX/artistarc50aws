@@ -2,10 +2,12 @@ myApp.factory('Api',['$resource', function($resource){
     return {
         Troupe:
             $resource('/api/troupe/:id', {id: '@id'}),
-        UserTroupeOne: 
+        UserTroupe: 
             $resource('/api/user/troupe/:id', {id: '@id'}),
         Project: 
             $resource('/api/project/:id', {id: '@id'}),
+        UserProject: 
+            $resource('/api/user/project/:id', {id: '@id'}),
         Posts: 
             $resource('/api/posts/:id', {id: '@id'}),
         Likes: 
