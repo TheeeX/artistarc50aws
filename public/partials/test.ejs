@@ -472,6 +472,21 @@
                                 <a href=""><div class="col-sm-12 col-md-12 text-center pointer">{{sTroupe}}</div></a>-->
                               </div>
                               </a>
+                          </li><li class="list-group-item troupe-list" ng-repeat="sProject in searchProject">
+                              <a href="project/{{sProject.username}}">
+                              <div class="row">
+                                <div class="col-sm-4 col-md-4 text-center">
+                                    {{sProject.name }}</div>
+                                <div class="col-sm-4 col-md-4 text-center"> 
+                                    {{sProject.username }}</div>
+                                <div class="col-sm-4 col-md-4 text-center pointer">
+                                    <strong>
+                                        <!--<i class="fa fa-trash" ng-click=""></i>{{searchProject.length}}-->
+                                    </strong>
+                                </div><!--
+                                <a href=""><div class="col-sm-12 col-md-12 text-center pointer">{{sProject}}</div></a>-->
+                              </div>
+                              </a>
                           </li>
                         </ul>
                     </div>
