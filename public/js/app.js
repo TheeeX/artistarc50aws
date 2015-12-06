@@ -19,6 +19,8 @@ var myApp = angular.module('myApp', [
         
         $routeProvider.when('/troupe/:userName', {templateUrl: '../partials/troupe.ejs', controller: 'troupeProfileCtrl'});
         
+        $routeProvider.when('/user/:userName', {templateUrl: '../partials/user.ejs', controller: 'userProfileCtrl'});
+        
 		$routeProvider.otherwise({redirectTo: '/test'});
 
 		$locationProvider.html5Mode({enabled: true, requireBase: false});
