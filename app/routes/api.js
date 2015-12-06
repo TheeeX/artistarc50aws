@@ -258,18 +258,19 @@ module.exports = function(router){
         Troupe.findOne({'username': req.params.id}, function(err, data){
             res.json(data);
             
+            console.log('yo isAdmin(troupe)?');
             if(isAdmin(req.user.local.username,data)){
                 console.log('Admin!');
             }else
                 console.log('Not Admin!');
         })
-    })
+    });
     
     router.delete('/user/troupe/:id', function(req, res){
         Troupe.remove({_id: req.params.id}, function(err){
             res.json({result: err ? 'error' : 'ok'});
         })
-    })
+    });
     
     router.post('/user/troupe/:id', function(req, res){
         Troupe.findOne({_id: req.params.id}, function(err, data){
@@ -294,6 +295,78 @@ module.exports = function(router){
     });
     
     /*------------------------------------------------------
+    ------------------- USER PROJECT Var -------------------
+    ------------------------------------------------------*/
+    router.post('/user/project', function(req, res){
+        console.log(req.body);
+        console.log(req.user.local.username);
+        var project = new Project();
+        project.name = req.body.troupename;
+        project.username = req.body.username;
+        project.local.author_username = req.user.local.username;
+        /*if(req.body.address) {
+            troupe.address.street = req.body.address.street;
+            troupe.address.city = req.body.address.city;
+            troupe.address.state = req.body.address.state;
+            troupe.address.zip = req.body.address.zip;
+        }*/
+        
+        project.save(function(err, data){
+            if(err)
+                throw err;
+            res.json(data);
+        });
+    });
+    
+    router.get('/user/project', function(req, res){
+        Project.find({'local.author_username': req.user.local.username}, function(err, data){
+            res.json(data);
+        });
+    });
+    
+    router.delete('/user/project', function(req, res){
+        Project.remove({}, function(err){
+            res.json({result: err ? 'error' : 'ok'});
+        });
+    });
+    
+    router.get('/user/project/:id', function(req, res){
+        console.log('data from server! - req.params.id');
+            console.log(req.params.id);
+        Project.findOne({'username': req.params.id}, function(err, data){
+            res.json(data);
+            
+        })
+    });
+    
+    router.delete('/user/project/:id', function(req, res){
+        Project.remove({_id: req.params.id}, function(err){
+            res.json({result: err ? 'error' : 'ok'});
+        })
+    });
+    
+    router.post('/user/project/:id', function(req, res){
+        Project.findOne({_id: req.params.id}, function(err, data){
+            var project = data;
+            project.name = req.body.troupename;
+            project.username = req.body.username;
+            project.local.author_username = req.user.local.username;
+            /*if(req.body.address) {
+                troupe.address.street = req.body.address.street;
+                troupe.address.city = req.body.address.city;
+                troupe.address.state = req.body.address.state;
+                troupe.address.zip = req.body.address.zip;
+            }*/
+            
+            project.save(function(err, data){
+                if(err)
+                    throw err;
+                res.json(data);
+            });
+            
+        });
+    });
+    /*------------------------------------------------------
     ------------------------- USER -------------------------
     -------------------------------------------------------*/
     router.get('/user', function(req, res){
@@ -312,6 +385,7 @@ module.exports = function(router){
         User.findOne({'local.username': req.params.id}, function(err, data){
             res.json(data);
             
+            console.log('yo isAdmin(user)?');
             if(isAdmin(req.user.local.username,data)){
                 console.log('Admin!');
             }else
@@ -485,6 +559,14 @@ module.exports = function(router){
         console.log('#server.js -- Searching( ' + req.params.id + ' )' );
          var chow = req.params.target.toString().trim();
          console.log(chow);
+        if(chow === 'user'){
+            console.log('yes');
+            User.find({'local.username': new RegExp(req.params.id)}, function(err, data){
+                if(err)
+                    throw err;
+                res.json(data);
+            });
+        }
         if(chow === 'troupe'){
             console.log('yes');
             Troupe.find({'username': new RegExp(req.params.id)}, function(err, data){
@@ -493,12 +575,13 @@ module.exports = function(router){
                 res.json(data);
             });
         }
-        if(chow === 'user'){
+        if(chow === 'project'){
             console.log('yes');
-            User.find({'local.username': new RegExp(req.params.id)}, function(err, data){
+            Project.find({'username': new RegExp(req.params.id)}, function(err, data){
                 if(err)
                     throw err;
                 res.json(data);
+                console.log(data);
             });
         }
     });
@@ -570,7 +653,8 @@ module.exports = function(router){
     });
 };
 
-function isAdmin(username, Object) {
+var isAdmin = function(username, Object) {
+    console.log('yo isAdmin()?');
 	if(Object.local.author_username==username){
 		return true;
 	}if(Object.local.username==username){
@@ -578,4 +662,4 @@ function isAdmin(username, Object) {
 	}
     else
         return false;
-}
+};
