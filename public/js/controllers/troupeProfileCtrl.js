@@ -7,7 +7,7 @@ myApp.controller('troupeProfileCtrl', ['$scope', '$routeParams', 'Api', function
         { title:'Test', content:'Dynamic content 3' }
       ];
     
-    Api.UserTroupeOne.get({id: $scope.userName }, function(data){
+    Api.UserTroupe.get({id: $scope.userName }, function(data){
         $scope.usertroupe = data;
         console.log('Troupe (data)');
         console.log(data);
