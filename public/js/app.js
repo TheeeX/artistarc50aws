@@ -21,7 +21,7 @@ var myApp = angular.module('myApp', [
         
         $routeProvider.when('/troupe', {templateUrl: 'partials/troupelist.ejs', controller: 'aboutController'});
         
-        $routeProvider.when('/project', {templateUrl: 'partials/projectlist.ejs', controller: 'aboutController'});
+        $routeProvider.when('/project', {templateUrl: 'partials/projectlist.ejs', controller: 'projectListCtrl'});
         
         $routeProvider.when('/gallery', {templateUrl: 'partials/gallery.ejs', controller: 'aboutController'});
         
