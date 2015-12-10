@@ -1,5 +1,7 @@
 myApp.controller('projectListCtrl', ['$scope', 'Api', function($scope, Api){
     $scope.userprojects = {};
+    $scope.pageSize = 5;
+    $scope.currentPage = 1;
     
     $scope.tabs = [
         { title:'Messages', content:'Dynamic content 2' },
