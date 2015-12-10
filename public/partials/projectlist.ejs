@@ -3,25 +3,21 @@
         <div class="jumbotron b-r-0"><h2>Projectlist</h2></div>
     </div>
     <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-4 col-sm-6 col-xs-12 pointer" ng-repeat="project in userprojects | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+            <a href="/project/{{project.username}}">
             <div class="panel p-5" style="width:100%;display: inline-block;">
-                PROJECT I
+                <div class="panel-heading">
+                    <h4 class="m-b-0">{{project.name}}</h4>
+                    <span class="username">
+                        @{{project.username}}
+                    </span>
+                </div>
+                <div class="panel-body">
+                    
+                </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="panel p-5" style="width:100%;display: inline-block;">
-                PROJECT II
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="panel p-5" style="width:100%;display: inline-block;">
-                PROJECT III
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="panel p-5" style="width:100%;display: inline-block;">
-                PROJECT IV
-            </div>
-        </div>
+        <uib-pagination total-items="userprojects.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+        </uib-pagination>
     </div>
 </div>
