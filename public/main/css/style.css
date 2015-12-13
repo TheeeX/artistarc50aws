@@ -45,6 +45,10 @@
   height: 500px;
 }								
 
+.btn-trans {
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#FFFFFF))!important;
+}
+
 /*
 li:hover {
     color: #555;
