@@ -12,7 +12,8 @@ app.use('/user', express.static(path.join(__dirname, 'public')));
 app.use('/troupe', express.static(path.join(__dirname, 'public')));
 app.use('/project', express.static(path.join(__dirname, 'public')));
 var multer = require('multer'); // v1.0.5
-var upload = multer();                         // for parsing multipart/form-data
+var upload = multer();                       // for parsing multipart/form-data
+var fs = require('fs');
 
 var AWS = require('aws-sdk');
 AWS.config.loadFromPath('./config/aws.json');
@@ -28,7 +29,51 @@ s3.listBuckets(function(err, data) {
     }
   }
 });
-
+/*
+var ec2 = new AWS.EC2({region: 'us-west-2'});
+AWS.config.ec2 = { region: 'us-west-2' };
+AWS.config.apiVersion = '2012-07-05';
+var ec2 = new AWS.EC2({apiVersion: 'latest'});
+*/
+/*
+var s3bucket1 = new AWS.S3({params: {Bucket: 'elasticbeanstalk-us-west-2-093236177960'}});
+s3bucket1.createBucket(function() {
+  var params = {Key: 'myKey', Body: 'Hello!'};
+  s3bucket1.upload(params, function(err, data) {
+    if (err) {
+      console.log("Error uploading data: ", err);
+    } else {
+      console.log("Successfully uploaded data to myBucket/myKey");
+    }
+  });
+});
+*/
+AWS.config.update({region: 'us-west-2'});
+/*
+var s3bucket2 = new AWS.S3();
+s3bucket2.createBucket(function() {
+    var params = {Bucket: 'artistarc-user-profile', Key: 'karan/file_name1', Body: 'Hello KJ!'};
+    s3bucket2.putObject(params, function(err, data) {
+        if (err) {
+            console.log("Error uploading data: ", err);
+        } else {
+            console.log("Successfully uploaded data to bucket/sub-bucket/");
+        }
+    });
+});
+*//*
+var s3bucket3 = new AWS.S3();
+s3bucket3.createBucket({Bucket: 'artistarc-user-post-media'}, function() {
+  var data = {Bucket: 'artistarc-user-post-media', Key: 'post1/post1media', Body: 'Hello!'};
+  s3bucket3.putObject(data, function(err, data) {
+    if (err) {
+      console.log("Error uploading data: ", err);
+    } else {
+      console.log("Successfully uploaded data to myBucket/myKey");
+    }
+  });
+});
+*/
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var morgan = require('morgan');
@@ -85,6 +130,11 @@ app.use('/', secure);
 var api = express.Router();
 require('./app/routes/api.js')(api, passport);
 app.use('/api', api);
+
+// http://... /media/
+var media = express.Router();
+require('./app/routes/media.js')(media);
+app.use('/media', media);
 
 /*
 // http://... /troupes/
