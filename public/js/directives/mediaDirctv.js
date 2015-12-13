@@ -1,4 +1,4 @@
-myApp.directive('media-obj', ['$scope', function($scope){
+/*myApp.directive('file', ['$scope', function($scope){
     return {
         restrict: 'AE',
         scope: {
@@ -14,4 +14,4 @@ myApp.directive('media-obj', ['$scope', function($scope){
           });
         }
     };
-}]);
+}]);*/
