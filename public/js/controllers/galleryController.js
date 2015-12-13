@@ -1,4 +1,7 @@
-myApp.controller('galleryController', ['$scope', 'Api', function($scope, Api){
+myApp.controller('galleryController', ['$scope', 'userVar', 'Api', function($scope, userVar, Api){
+    
+    console.log(userVar.fname);
+    console.log(userVar.email);
     
     $scope.file = [];
     
@@ -15,10 +18,12 @@ myApp.controller('galleryController', ['$scope', 'Api', function($scope, Api){
         
       if($scope.file) {
           var file = $scope.file;
+          var fileKey = userVar.fname + "/" + file.name;
+          console.log(fileKey);
           fileReader.readAsArrayBuffer(file);
           fileReader.onload = function(e){
           var s3 = new AWS.S3();
-                  var params = {Bucket: 'artistarc-user-post-media', Key: 'p909/pp.jpg', Body: e.target.result};
+                  var params = {Bucket: 'artistarc-user-post-media', Key: fileKey, Body: e.target.result};
                   s3.putObject(params, function(err) {
                   if (err) {
                   console.log(err);
