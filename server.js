@@ -15,65 +15,21 @@ var multer = require('multer'); // v1.0.5
 var upload = multer();                       // for parsing multipart/form-data
 var fs = require('fs');
 
-var AWS = require('aws-sdk');
-AWS.config.loadFromPath('./config/aws.json');
+//var AWS = require('aws-sdk');
+//AWS.config.loadFromPath('./config/aws.json');
 //AWS.config.region = 'us-west-2';
 
-var s3 = new AWS.S3();
-s3.listBuckets(function(err, data) {
-  if (err) { console.log("Error:", err); }
-  else {
-    for (var index in data.Buckets) {
-      var bucket = data.Buckets[index];
-      console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
-    }
-  }
-});
-/*
-var ec2 = new AWS.EC2({region: 'us-west-2'});
-AWS.config.ec2 = { region: 'us-west-2' };
-AWS.config.apiVersion = '2012-07-05';
-var ec2 = new AWS.EC2({apiVersion: 'latest'});
-*/
-/*
-var s3bucket1 = new AWS.S3({params: {Bucket: 'elasticbeanstalk-us-west-2-093236177960'}});
-s3bucket1.createBucket(function() {
-  var params = {Key: 'myKey', Body: 'Hello!'};
-  s3bucket1.upload(params, function(err, data) {
-    if (err) {
-      console.log("Error uploading data: ", err);
-    } else {
-      console.log("Successfully uploaded data to myBucket/myKey");
-    }
-  });
-});
-*/
-AWS.config.update({region: 'us-west-2'});
-/*
-var s3bucket2 = new AWS.S3();
-s3bucket2.createBucket(function() {
-    var params = {Bucket: 'artistarc-user-profile', Key: 'karan/file_name1', Body: 'Hello KJ!'};
-    s3bucket2.putObject(params, function(err, data) {
-        if (err) {
-            console.log("Error uploading data: ", err);
-        } else {
-            console.log("Successfully uploaded data to bucket/sub-bucket/");
-        }
-    });
-});
-*//*
-var s3bucket3 = new AWS.S3();
-s3bucket3.createBucket({Bucket: 'artistarc-user-post-media'}, function() {
-  var data = {Bucket: 'artistarc-user-post-media', Key: 'post1/post1media', Body: 'Hello!'};
-  s3bucket3.putObject(data, function(err, data) {
-    if (err) {
-      console.log("Error uploading data: ", err);
-    } else {
-      console.log("Successfully uploaded data to myBucket/myKey");
-    }
-  });
-});
-*/
+//var s3 = new AWS.S3();
+//s3.listBuckets(function(err, data) {
+//  if (err) { console.log("Error:", err); }
+//  else {
+//    for (var index in data.Buckets) {
+//      var bucket = data.Buckets[index];
+//      console.log("Bucket: ", bucket.Name, ' : ', bucket.CreationDate);
+//    }
+//  }
+//});
+
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var morgan = require('morgan');
@@ -141,13 +97,12 @@ app.use('/media', media);
 var troupes = express.Router();
 require('./app/routes/troupes.js')(troupes, passport);
 app.use('/troupes', troupes);
-
+//
 // http://... /projects/
 var projects = express.Router();
 require('./app/routes/projects.js')(projects, passport);
 app.use('/projects', projects);
 */
-
 /*
 require('./app/routes.js')(app, passport);
 */
