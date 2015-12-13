@@ -6,6 +6,7 @@ var AWS = require('aws-sdk');
     AWS.config.loadFromPath('./config/aws.json');
 
 var Troupe = require('../models/troupe');
+var Gallery = require('../models/gallery');
 
 module.exports = function(router){
     
@@ -18,7 +19,7 @@ module.exports = function(router){
     /*------------------------------------------------------
     --------------------- media UPLOAD ---------------------
     ------------------------------------------------------*/
-    router.post('/user/upload', multipartMiddleware, function(req, res){
+    router.post('/user/uploadfile', multipartMiddleware, function(req, res){
         console.log('req recieved upload');
         var file = req.files.file;
         console.log(file.path);
@@ -39,11 +40,22 @@ module.exports = function(router){
         res.end('Uploaded');
     });
     
-    router.post('/user/upload/obj', function(req, res){
-       
+    router.get('/user/gallery', function(req, res){
+    });
+    router.post('/user/gallery', function(req, res){
+        Troupe.findOne({_id: req.params.id}, function(err, data){
+            
+        });
     });
     
-    router.get('/troupe', function(req, res){/*
+    router.get('/user/gallery/:id', function(req, res){/*
+        Troupe.find({'local.author_username': req.user.local.username}, function(err, data)         {
+            res.json(data);
+        });*/
+        res.end('hihihi');
+    });
+    
+    router.post('/user/gallery/:id', function(req, res){/*
         Troupe.find({'local.author_username': req.user.local.username}, function(err, data)         {
             res.json(data);
         });*/
