@@ -12,7 +12,7 @@ module.exports = function(router){
     
     router.post('/aws/creds', function(req, res){    
         var Aws = require('../../config/aws.js');
-        console.log(Aws);
+        //console.log(Aws);
         res.json(Aws);
     });
     
@@ -43,9 +43,10 @@ module.exports = function(router){
     router.get('/user/gallery', function(req, res){
     });
     router.post('/user/gallery', function(req, res){
-        Troupe.findOne({_id: req.params.id}, function(err, data){
+        
+        //Gallery.findOne({local.author_username: req.user.local.username}, function(err, data){
             
-        });
+        //});
     });
     
     router.get('/user/gallery/:id', function(req, res){/*
