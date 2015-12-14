@@ -41,6 +41,7 @@ module.exports = function(router){
     });
     
     router.get('/user/gallery', function(req, res){
+        
     });
     router.post('/user/gallery', function(req, res){
         
@@ -50,51 +51,31 @@ module.exports = function(router){
     });
     
     router.get('/user/gallery/:id', function(req, res){/*
-        Troupe.find({'local.author_username': req.user.local.username}, function(err, data)         {
-            res.json(data);
-        });*/
-        res.end('hihihi');
-    });
-    
-    router.post('/user/gallery/:id', function(req, res){/*
-        Troupe.find({'local.author_username': req.user.local.username}, function(err, data)         {
-            res.json(data);
-        });*/
-        res.end('hihihi');
-    });
-    
-    router.delete('/troupe', function(req, res){/*
-        Troupe.remove({}, function(err){
-            res.json({result: err ? 'error' : 'ok'});
-        });*/
-    });
-    
-    router.get('/troupe/:id', function(req, res){/*
         Troupe.findOne({_id: req.params.id}, function(err, data){
             res.json(data);
         });*/
+        res.end('hihihi');
+    });
+    router.post('/user/gallery/:id', function(req, res){
+        
+        //Gallery.findOne({local.author_username: req.user.local.username}, function(err, data){
+            
+        //});
     });
     
-    router.delete('/troupe/:id', function(req, res){/*
-        Troupe.remove({_id: req.params.id}, function(err){
-            res.json({result: err ? 'error' : 'ok'});
-        });*/
-    });
-    
-    router.post('/troupe/:id', function(req, res){
-        /*
+    /**************************************************************************************
+                                NOT CONFIGURED
+    */
+    router.put('/user/gallery/:id', function(req, res){/*
+        Troupe.find({'local.author_username': req.user.local.username}, function(err, data){
+            res.json(data);
+        });
         Troupe.findOne({_id: req.params.id}, function(err, data){
             var troupe = data;
             troupe.name = req.body.troupename;
-            troupe.username = req.body.username;
-            troupe.local.author_username = req.user.local.username;
-            if(req.body.address) {
-                troupe.address.street = req.body.address.street;
-                troupe.address.city = req.body.address.city;
-                troupe.address.state = req.body.address.state;
-                troupe.address.zip = req.body.address.zip;
-            }
-            
+        res.end('hihihi');
+        
+        
             troupe.save(function(err, data){
                 if(err)
                     throw err;
@@ -103,6 +84,16 @@ module.exports = function(router){
             
         });
     */
+    });
+    router.delete('/user/gallery', function(req, res){/*
+    Troupe.remove({_id: req.params.id}, function(err){
+            res.json({result: err ? 'error' : 'ok'});
+        });*/
+    });
+    router.delete('/user/gallery/:id', function(req, res){/*
+        Troupe.remove({}, function(err){
+            res.json({result: err ? 'error' : 'ok'});
+        });*/
     });
     
     
