@@ -1,6 +1,38 @@
 <div class="container-fluid" style="background-color:white">
     <div class="row">
-        <div class="jumbotron b-r-0"><h2>Gallery</h2></div>
+        <div class="jumbotron b-r-0">
+            <div class="row"><h2>Gallery</h2></div>
+            <div class="row">
+                <button type="button" class="btn btn-default btn-trans btn-sm" ng-click = "" style="float:right">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    New Dir
+                </button>
+                
+                
+                <!-- New Dir Dropdown -->
+                
+                <div class="dropdown" style="float:left">
+                  <button class="btn btn-sm dropdown-toggle btn-trans" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    New DIr
+                  </button>
+                    
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="padding:10px">
+                      <li><strong>Directory Name:</strongstrong></li>
+                    <li><input type = "text" name = "driname"/></li>
+                    <!--<li role="separator" class="divider"></li>-->
+                    <li>
+                        <button class="btn btn-sm dropdown-toggle btn-trans" type="button" style="float: right;">
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                          Create
+                        </button>
+                        
+                      </li>
+                  </ul>
+                </div>
+                
+            </div>
+        </div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -22,12 +54,15 @@
             <uib-pagination total-items="userprojects.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
             </uib-pagination>
         </div>
-        --><form>
+        --><!--
+            <form>
                 <button type="button" class="btn btn-default btn-trans btn-sm" ng-click = "uploadFile()">
                   <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
                     Upload
                 </button>
-                <input type = "file" name = "file"  ng-model="file" file/></div>
-        </form>
-            </div>
-        </div>
+                <input type = "file" name = "file"  ng-model="file" file/>
+          </form>
+          -->
+       </div>
+    </div>
+</div>
