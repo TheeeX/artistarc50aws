@@ -9,6 +9,11 @@ myApp.controller('galleryController', ['$scope', 'userVar', 'Api', function($sco
     Api.MediaCreds.save({},function(data){
        Aws = data;
     });
+    /*
+    Api.UserGallery.save({},function(data){
+       console.log(data);
+    });
+    */
     $scope.uploadFile = function(){
       // Configure The S3 Object 
       AWS.config.update({ accessKeyId: Aws.accessKeyId, secretAccessKey: Aws.secretAccessKey });
