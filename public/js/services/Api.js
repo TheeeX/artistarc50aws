@@ -26,8 +26,8 @@ myApp.factory('Api',['$resource', function($resource){
             $resource('/api/user/addbook/:id', {id: '@id'}),
         Notify: 
             $resource('/api/notify/:type/:sid/:tid/:notf', {type: '@type', sid: '@sid', tid: '@tid', notf: '@notf'}),
-        MediaUpload: 
-            $resource('/media/user/upload/:id', {id: '@id'}),
+        UserGallery: 
+            $resource('/media/user/gallery/:id', {id: '@id'}),
         MediaCreds: 
             $resource('/media/aws/creds/:id', {id: '@id'})
     }
