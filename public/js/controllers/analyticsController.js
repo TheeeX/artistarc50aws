@@ -3,10 +3,13 @@ myApp.controller('analyticsController', ['$scope', function($scope){
         { title:'Messages', content:'Dynamic content 2' },
         { title:'Test', content:'Dynamic content 3' }
       ];
+    //
       $scope.testtag = {
           title: 'wow',
           content: 'meow'
       };
+    //
+    // Line Chart
       $scope.labels = ["January", "February", "March", "April", "May", "June"];
       $scope.series = ['Series A', 'Series B'];
       $scope.data = [
@@ -16,7 +19,7 @@ myApp.controller('analyticsController', ['$scope', function($scope){
       $scope.onClick = function (points, evt) {
         console.log(points, evt);
       };
-    
+    //Donut Chart
       $scope.dlabels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
       $scope.ddata = [300, 500, 100];
     
