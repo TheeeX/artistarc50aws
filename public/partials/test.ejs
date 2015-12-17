@@ -29,9 +29,26 @@
         <div class="row" style="padding:0; padding-left:10px">
             
             <!----------------------------------------------------------
-             ----------------------ModalDemoCtrl ----------------------->
+             ----------------------Progress Panel----------------------->
             
-            <div class="col-sm-6 col-md-2 p-l-0" ng-controller="ModalDemoCtrl">
+            <div class="col-sm-6 col-md-3 p-l-0" ng-controller="ModalDemoCtrl">
+                
+                
+                <div class="panel" style="height:300px;color:grey">
+                    
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-6"></div>
+                        <div class="col-xs-12 col-sm-12 col-md-12"></div>
+                    </div>
+                    
+                    <canvas id="chart line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick" styles="">
+                    </canvas> 
+                </div>
+
+            <!----------------------------------------------------------
+             ----------------------ModalDemoCtrl------------------------>               
+                <div class="panel" style="height:300px;color:grey">    
                     <button class="list-group-item">
                         home
                         
@@ -184,7 +201,8 @@
                             </div>
                         </div>
                     </script>
-
+                </div>
+                
             </div>
                
             <div class="col-sm-6 col-md-4 p-l-0 p-r-10" ng-controller="postsController">
@@ -345,7 +363,7 @@
 
             </div>
 
-            <div class="col-sm-6 col-md-3">
+            <div class="col-sm-6 col-md-2">
 
                 <div class="row">
 
@@ -355,7 +373,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item head">
                                     <div class="row">
-                                        <div class="col-sm-4 col-md-4 text-center"><strong>TroupeName</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>Troupe</strong></div>
                                         <div class="col-sm-4 col-md-4 text-center"><strong>Username</strong></div>
                                         <div class="col-sm-4 col-md-4 text-center"><i class="fa fa-trash pointer" ng-click="deleteAll()"></i>
                                         </div>
@@ -393,7 +411,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item head">
                                     <div class="row">
-                                        <div class="col-sm-4 col-md-4 text-center"><strong>ProjectName</strong></div>
+                                        <div class="col-sm-4 col-md-4 text-center"><strong>Project</strong></div>
                                         <div class="col-sm-4 col-md-4 text-center"><strong>Username</strong></div>
                                         <div class="col-sm-4 col-md-4 text-center"><i class="fa fa-trash pointer" ng-click="deleteAll()"></i>
                                         </div>
