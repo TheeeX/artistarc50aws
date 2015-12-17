@@ -45,16 +45,21 @@ module.exports = function(router){
     });
     router.post('/user/gallery', function(req, res){
         
-        //Gallery.findOne({local.author_username: req.user.local.username}, function(err, data){
-            
-        //});
+        /*Gallery.findOne({local.author_username: req.user.local.username}, function(err, data){
+            var gallery = data;
+            gallery.directory.push({'name': req.body.name, 'cname': req.body.cname});
+            gallery.save(function(err, data){
+                    if(err)
+                        throw err;
+                    res.json(data);
+                });
+          });
     });
     
-    router.get('/user/gallery/:id', function(req, res){/*
+    router.get('/user/gallery/:id', function(req, res){
         Troupe.findOne({_id: req.params.id}, function(err, data){
             res.json(data);
         });*/
-        res.end('hihihi');
     });
     router.post('/user/gallery/:id', function(req, res){
         
