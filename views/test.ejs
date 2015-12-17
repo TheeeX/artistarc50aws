@@ -41,7 +41,7 @@
   <body class="body" role="document">
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navController">
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navController">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -55,7 +55,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li ng-class="{active: isActive('/')}"><a href="/">Home</a></li>
-            <li ng-class="{active: isActive('/user')}"><a href="/user/<%=user.local.username%>">User</a></li>
+            <li ng-class="{active: isActive('/user')}"><a href="/user/<//%=user.local.username%>">User</a></li>
             <li ng-class="{active: isActive('/edit')}"><a href="/edit">Edit</a></li>
             <li ng-class="{active: isActive('/gallery')}"><a href="/gallery">Gallery</a></li>
             <li ng-class="{active: isActive('/troupe')}"><a href="/troupe">Troupes</a></li>
@@ -76,17 +76,74 @@
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </nav>
+    </nav>-->
 
     <div class="container theme-showcase w-100p" role="main"  ng-controller="userVarCtrlr">
-        <br>
-      <div class="l-r-0 container-fluid w-100p">
-        <div ng-view style="padding-top:30px"></div>
+        <!--<br>-->
+      <div class="l-r-0 container-fluid w-100p" style="width: 96%!important;margin-left: 47px!important;overflow:hidden">
+        <div ng-view style="padding-left: 15px; padding-top: 7px;"></div>
           <%= console.log(user) %>
-      </div>    
-
+      </div> 
+        <nav class="navbar navbar-fixed-top" 
+             ng-controller="navController" 
+             style="height: 100%;width:51px;background-color: rgba(0, 0, 0, 0.89)!important;">
+          <div class="container-fluid" style="padding:0">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-home ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-bar-chart ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-bell-o ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-cloud ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-music ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-folder ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-users ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-inbox ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-search ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-star-o ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-tasks ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-user-plus ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa credit-card ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-cogs ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+              </div>
+              jdwlj
+          </div>
+        </nav>
+        <nav class="navbar navbar-fixed-top" 
+             ng-controller="navController" 
+             style="top: 93%;height: 40px;background-color: rgba(0, 0, 0, 0.89)!important">
+          <div class="container-fluid" style="padding-left:0">
+              <img src="images/logo.jpg" style="width:51px;height:inherit"></img>jdwlj
+          </div>
+        </nav>
     </div> <!-- /container -->
   
     <!-- Bootstrap core JavaScript
@@ -115,10 +172,9 @@
     <script src="libs/Chart.js/Chart.js"></script>
     <script src="libs/angular-chart.js/dist/angular-chart.js"></script>
       
-    <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>  
-    <script src="http://www.amcharts.com/lib/3/serial.js"></script>
-    <script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
-    <script src="http://www.amcharts.com/lib/3/themes/patterns.js"></script>
+    <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="http://www.amcharts.com/lib/3/pie.js"></script>
+<script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
 
       
     <!-- AppJs && Controllers
