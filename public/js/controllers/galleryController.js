@@ -10,7 +10,7 @@ myApp.controller('galleryController', ['$scope', 'userVar', 'Api', function($sco
        Aws = data;
     });
     /*
-    Api.UserGallery.save({},function(data){
+    Api.UserGallery.save({}, $scope.dir, function(data){
        console.log(data);
     });
     */
