@@ -11,6 +11,16 @@
 .pointer{
     cursor: pointer;
 }
+.ptr{
+    cursor: pointer;
+}
+
+.ptr:hover{
+    cursor: pointer;
+    color: #EAEAEA!important;
+    text-decoration: none;
+    /*background-color: #f5f5f5;*/
+}
 /*******************************************
 **************CUSTOM BOOTSTRAP**************
 *******************************************/
